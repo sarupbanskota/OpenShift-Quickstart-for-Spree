@@ -43,7 +43,7 @@ gem 'jquery-rails'
 # This needs to be installed so we can run Rails console on OpenShift directly
 gem 'minitest'
 
-
-gem 'spree', '2.0.3'
+gem 'spree', :github => 'spree/spree', :branch => '2-0-stable' 
+gem 'spree_fancy', :github => 'spree/spree_fancy', :branch => '2-0-stable' 
 gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :branch => '2-0-stable'
 gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-0-stable'

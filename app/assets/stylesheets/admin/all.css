@@ -8,4 +8,5 @@
 
  *= require_self
  *= require_tree .
+ *= require admin/spree_fancy
 */
