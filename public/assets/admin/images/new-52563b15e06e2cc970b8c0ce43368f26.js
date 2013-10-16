@@ -1,0 +1,1 @@
+!function(){$("#cancel_link").click(function(t){return t.preventDefault(),$(".no-objects-found").show(),$("#new_image_link").show(),$("#images").html("")})}.call(this);
