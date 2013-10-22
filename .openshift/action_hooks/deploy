@@ -21,5 +21,10 @@ then
 fi
 
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
-bundle exec rake db:migrate RAILS_ENV="production"
+if [ echo "use $OPENSHIFT_APP_NAME; show tables" | mysql | grep spree_activators ]
+then
+    bundle exec rake db:migrate RAILS_ENV="production"
+else
+    bundle exec rake db:schema:load RAILS_ENV="production"
+fi
 popd > /dev/null
