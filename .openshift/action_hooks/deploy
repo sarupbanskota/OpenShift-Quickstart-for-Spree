@@ -4,8 +4,6 @@
 # up again.  This script gets executed directly, so it could be python, php,
 # ruby, etc.
 
-set -e
-
 if [ -z "$OPENSHIFT_MYSQL_DB_HOST" ]
 then
     echo 1>&2
@@ -21,7 +19,7 @@ then
 fi
 
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
-if [ echo "use $OPENSHIFT_APP_NAME; show tables" | mysql | grep spree_activators ]
+if echo "use $OPENSHIFT_APP_NAME; show tables" | mysql | grep spree_activators
 then
     bundle exec rake db:migrate RAILS_ENV="production"
 else
