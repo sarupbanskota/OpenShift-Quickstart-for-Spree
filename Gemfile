@@ -1,21 +1,30 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.13'
-gem 'rack', '~> 1.4.5'
+gem 'rails', '~> 4.0.5'
+gem 'rack', '~> 1.5.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
-gem 'sqlite3'
+group :production, :mysql do
+  gem 'mysql2'
+end
 
+group :production, :postgresql do
+  gem 'pg'
+end
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'minitest'
+  gem 'thor', '= 0.18.1'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'turbo-sprockets-rails3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -40,11 +49,11 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+gem 'execjs' 
+gem 'libv8'
+gem 'therubyracer'
+gem 'rmagick'
 
-# This needs to be installed so we can run Rails console on OpenShift directly
-gem 'minitest'
-
-gem 'spree', :github => 'spree/spree', :branch => '2-0-stable' 
-gem 'spree_fancy', :github => 'spree/spree_fancy', :branch => '2-0-stable' 
-gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :branch => '2-0-stable'
-gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-0-stable'
+gem 'spree', '2.2.2'
+gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :branch => '2-2-stable'
+gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-2-stable'
